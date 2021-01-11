@@ -7,13 +7,13 @@ import {Book} from '../book';
 
 @Component({
   selector: 'app-editproduct',
-  templateUrl: './editproduct.component.html',
-  styleUrls: ['./editproduct.component.css']
+  templateUrl: './editbook.component.html',
+  styleUrls: ['./editbook.component.css']
 })
-export class EditproductComponent implements OnInit {
+export class EditbookComponent implements OnInit {
 
   sub: Subscription;
-  product: Book = {
+  book: Book = {
     id: 1,
     title: 'Clean Code',
     author: 'Robert C. Martin',
@@ -21,12 +21,12 @@ export class EditproductComponent implements OnInit {
   };
   id: number;
 
-  constructor(private productService: BookService,
+  constructor(private bookService: BookService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
     this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.getProduct(this.id);
+      this.getBook(this.id);
     });
   }
 
@@ -34,15 +34,17 @@ export class EditproductComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  getProduct(id: number) {
-    this.productService.getProduct(id).subscribe(product => {
-      this.product = product;
+  getBook(id: number) {
+    this.bookService.getBook(id).subscribe(book => {
+      this.book = book;
     });
   }
 
   // tslint:disable-next-line:typedef
-  updateProduct() {
-    this.productService.updateProduct(this.product.id, this.product).subscribe(() => {
+  updateBook() {
+    this.bookService.updateBook(this.book.id, this.book).subscribe(() => {
+      alert("Đã cập nhật!")
+
       this.router.navigate(['/']);
     });
 

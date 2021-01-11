@@ -1,34 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from '../book.service';
-import {Book} from '../book';
+
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Book} from '../book';
 
 @Component({
   selector: 'app-productdetail',
-  templateUrl: './productdetail.component.html',
-  styleUrls: ['./productdetail.component.css']
+  templateUrl: './bookdetail.component.html',
+  styleUrls: ['./bookdetail.component.css']
 })
-export class ProductdetailComponent implements OnInit {
-  product: Book;
+export class BookdetailComponent implements OnInit {
+  book: Book;
   id: number;
 
-  constructor(private productService: BookService,
+  constructor(private bookService: BookService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.getProduct(this.id);
+      this.getBook(this.id);
     });
   }
 
-  ngOnInit()
-    :
-    void {
+  ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
-  getProduct(id: number) {
-    this.productService.getProduct(id).subscribe(product => {
-      this.product = product;
+  getBook(id: number) {
+    this.bookService.getBook(id).subscribe(book => {
+      this.book=book;
     });
   }
 }

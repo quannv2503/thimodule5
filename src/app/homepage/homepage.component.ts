@@ -8,39 +8,19 @@ import {BookService} from '../book.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  products: Book[] = [];
+  books: Book[] = [];
 
-  constructor(private productService: BookService) {
+  constructor(private bookService: BookService) {
     this.getAll();
   }
 
   ngOnInit(): void {
   }
 
-  getAll(): Book[] {
-    this.productService.getAllProduct().subscribe(products => {
-      this.products = products;
+  getAll() {
+    this.bookService.getAllBook().subscribe(books => {
+      this.books = books;
     });
-    return this.products;
   }
-
-  sizeBook(): number {
-    return this.getAll().length;
-  };
-
-  // tslint:disable-next-line:typedef
-  delete(id: number) {
-    if (confirm('Bạn có thực sự muốn xóa?')) {
-      this.productService.deleteProduct(id).subscribe(
-        next => {
-          this.products = this.getAll();
-        },
-        error => {
-          alert('error');
-        }
-      );
-    }
-  }
-
 
 }

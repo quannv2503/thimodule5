@@ -6,18 +6,18 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-newproduct',
-  templateUrl: './newproduct.component.html',
-  styleUrls: ['./newproduct.component.css']
+  templateUrl: './newbook.component.html',
+  styleUrls: ['./newbook.component.css']
 })
-export class NewproductComponent implements OnInit {
-  product: Book = {
+export class NewbookComponent implements OnInit {
+  book: Book = {
     id: -1,
     title: ' ',
     author: ' ',
     description: ' '
   };
 
-  constructor(private productService: BookService,
+  constructor(private bookService: BookService,
               private router: Router) {
   }
 
@@ -25,10 +25,15 @@ export class NewproductComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  createProduct() {
-    this.productService.createProduct(this.product)
+  createBook() {
+    this.bookService.createBook(this.book)
       .subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/create']);
+        this.book.id=-1;
+        this.book.title='';
+        this.book.author="";
+        this.book.description="";
+        alert("Đã thêm!")
       });
   }
 }

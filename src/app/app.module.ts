@@ -6,18 +6,21 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {NewproductComponent} from './newproduct/newproduct.component';
-import {ProductdetailComponent} from './productdetail/productdetail.component';
-import {EditproductComponent} from './editproduct/editproduct.component';
+import {NewbookComponent} from './new-book/newbook.component';
+import {BookdetailComponent} from './book-detail/bookdetail.component';
+import {EditbookComponent} from './edit-book/editbook.component';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    NewproductComponent,
-    EditproductComponent,
-    ProductdetailComponent
+    NewbookComponent,
+    EditbookComponent,
+    BookdetailComponent,
+    BookdetailComponent,
+    DeleteBookComponent
   ],
   imports: [
     BrowserModule,

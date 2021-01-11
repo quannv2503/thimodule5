@@ -1,0 +1,21 @@
+<h2>
+  <center>Xoá sách</center>
+</h2>
+<br>
+<hr>
+<br>
+<br>
+<h4><b>Xoá sách</b></h4>
+<p>Tên sách:{{book.title}}</p>
+<p>Tác giả:{{book.author}}</p>
+<p>Mô tả:</p>
+<p>{{book.description}}</p>
+<br>
+<div class="row">
+  <div>
+    <button type="submit" class="btn btn-primary" (click)="delete(book.id)">Xoá sách</button>
+  </div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2"><a [routerLink]="''" class="btn btn-info">Thoát</a></div>
+  <div class="col-sm-2"></div>
+</div>

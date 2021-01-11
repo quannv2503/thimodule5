@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomepageComponent} from './homepage/homepage.component';
-import {NewproductComponent} from './newproduct/newproduct.component';
-import {ProductdetailComponent} from './productdetail/productdetail.component';
-import {EditproductComponent} from './editproduct/editproduct.component';
+import {NewbookComponent} from './new-book/newbook.component';
+import {BookdetailComponent} from './book-detail/bookdetail.component';
+import {EditbookComponent} from './edit-book/editbook.component';
+import {DeleteBookComponent} from './delete-book/delete-book.component';
 
 const routes: Routes = [{
     path: '',
@@ -11,15 +12,19 @@ const routes: Routes = [{
   },
     {
       path: 'create',
-      component: NewproductComponent
+      component: NewbookComponent
     },
     {
       path: 'edit/:id',
-      component: EditproductComponent
+      component: EditbookComponent
     },
     {
-      path: 'product/:id',
-      component: ProductdetailComponent
+      path: 'book/:id',
+      component: BookdetailComponent
+    },
+    {
+      path: 'delete/:id',
+      component: DeleteBookComponent
     }
 
   ]

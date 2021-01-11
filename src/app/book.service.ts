@@ -14,23 +14,23 @@ export class BookService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAllProduct(): Observable<Book[]> {
+  getAllBook(): Observable<Book[]> {
     return this.httpClient.get<Book[]>('http://localhost:3000/books');
   }
 
-  createProduct(product: Book): Observable<Book> {
-    return this.httpClient.post<Book>('http://localhost:3000/books', product);
+  createBook(book: Book): Observable<Book> {
+    return this.httpClient.post<Book>('http://localhost:3000/books', book);
   }
 
-  getProduct(id: number): Observable<Book> {
+  getBook(id: number): Observable<Book> {
     return this.httpClient.get<Book>(`http://localhost:3000/books/${id}`);
   }
 
-  updateProduct(id: number, product: Book): Observable<Book> {
+  updateBook(id: number, product: Book): Observable<Book> {
     return this.httpClient.put<Book>(`http://localhost:3000/books/${id}`, product);
   }
 
-  deleteProduct(id: number): Observable<Book> {
+  deleteBook(id: number): Observable<Book> {
     return this.httpClient.delete<Book>(`http://localhost:3000/books/${id}`);
   }
 }
